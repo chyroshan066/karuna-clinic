@@ -121,6 +121,7 @@ karuna-clinic/
 ├── package.json
 ├── postcss.config.mjs
 ├── tsconfig.json
+├── vercel.json
 ├── LICENSE
 └── README.md
 ```
