@@ -154,11 +154,9 @@ export const Hero = memo(() => {
 
                 <figure className="hero-banner">
                     <Image
-                        src="/images/hero-banner.webp"
-                        width={400}
-                        height={562}
-                        // width={587}
-                        // height={839}
+                        src="/images/hero-banner.png"
+                        width={587}
+                        height={839}
                         alt="hero banner"
                         className="w-fill"
                     />

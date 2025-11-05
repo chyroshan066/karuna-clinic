@@ -468,6 +468,9 @@
   .hero-form .btn { 
     width: 100%; 
   }
+  .hero-banner img {
+    border: 2px solid var(--deep-burgundy);
+  }
 
   /* INTRO */
   .intro {
