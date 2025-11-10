@@ -6,6 +6,7 @@ import { CaretLeftIcon, CaretRightIcon, QuotesIcon, StarIcon, XIcon } from '@pho
 import { createPortal } from 'react-dom';
 import { Testimonial } from '@/types';
 import { TESTIMONIALS } from '@/constants/testimonials';
+import { TitleHeader } from './utility/TitleHeader';
 
 interface Statistics {
     title: string;
@@ -277,12 +278,12 @@ export const TestimonialSlider = memo(() => {
                         className="text-center"
                         style={{ marginBlockEnd: '50px' }}
                     >
-                        <h2
-                            className="h2"
-                            style={{ marginBlockEnd: '15px' }}
-                        >
-                            What Our Patients Say
-                        </h2>
+
+                        <TitleHeader
+                            subTitle1="What Our Patients Say"
+                            className="mb-12"
+                        />
+
                         <p
                             className="section-text"
                             style={{

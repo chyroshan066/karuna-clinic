@@ -1,4 +1,5 @@
 import { IonIcon } from '@/components/utility/IonIcon';
+import { TitleHeader } from '@/components/utility/TitleHeader';
 import Link from 'next/link';
 import React, { memo } from 'react';
 
@@ -6,6 +7,7 @@ const TRAININGS: string[] = [
     "Advanced Skin Laser Surgery",
     "Skin Rejuvenation",
     "Skin Tightening",
+    "Hair Restoration Surgery",
 ];
 
 export const Dermatologist = memo(() => {
@@ -566,26 +568,13 @@ export const Dermatologist = memo(() => {
                     position: 'relative'
                 }}>
                 <div className="custom-container text-center">
-                    <h3
-                        className="section-subtitle"
-                        style={{
-                            color: 'var(--deep-burgundy)',
-                            fontSize: '1.4rem',
-                            letterSpacing: '2px',
-                            marginBottom: '15px'
-                        }}>
-                        READY TO GET STARTED?
-                    </h3>
-                    <h2
-                        className="h2"
-                        style={{
-                            color: 'var(--dark-brown-1)',
-                            fontSize: '3.2rem',
-                            fontWeight: '700',
-                            marginBottom: '25px'
-                        }}>
-                        Schedule Your Appointment Today
-                    </h2>
+
+                    <TitleHeader
+                        title="READY TO GET STARTED?"
+                        subTitle1="Schedule Your Appointment Today"
+                        className="mb-5"
+                    />
+
                     <p
                         className="section-text"
                         style={{

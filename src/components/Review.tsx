@@ -1,6 +1,7 @@
 "use client";
 
 import { memo } from "react";
+import { TitleHeader } from "./utility/TitleHeader";
 
 export const Review = memo(() => {
   return (
@@ -13,9 +14,11 @@ export const Review = memo(() => {
         <div className="review-request-content text-center">
           {/* Header */}
           <div className="review-request-header">
-            <h2 className="h2 section-title">
-              Love Our Service?
-            </h2>
+
+            <TitleHeader
+              subTitle1="Love Our Service?"
+            />
+
             <p
               className="section-text"
               style={{

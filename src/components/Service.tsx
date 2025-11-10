@@ -39,7 +39,7 @@ export const Service = memo(() => (
 
             <TitleHeader
                 title={"Our Services"}
-                subTitle={"What We Provide"}
+                subTitle1={"What We Provide"}
             />
 
             <ul className="service-list">

@@ -2,6 +2,7 @@
 
 import { useState, useRef, memo, useEffect } from 'react';
 import { IonIcon } from './utility/IonIcon';
+import { TitleHeader } from './utility/TitleHeader';
 
 interface IntroProps {
     videoUrl?: string;
@@ -116,11 +117,13 @@ export const Intro = memo(({
                 <div className="intro-content">
                     {/* Section Header */}
                     <div className="intro-header text-center">
-                        <p className="section-subtitle">Our Story</p>
-                        <h2 className="h2 section-title">
-                            Experience Excellence In <br />
-                            Skin, Hair & Laser Care
-                        </h2>
+
+                        <TitleHeader
+                            title="Our Story"
+                            subTitle1="Experience Excellence In"
+                            subTitle2="Skin, Hair & Laser Care"
+                        />
+
                         <p className="section-text">
                             Watch our journey of providing world-class skin, hair & laser treatments with cutting-edge technology and compassionate care in the heart of Dharan.
                         </p>

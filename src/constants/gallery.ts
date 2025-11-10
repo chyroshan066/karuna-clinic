@@ -10,7 +10,7 @@ export const MEDIA_ITEMS: MediaItem[] = [
     },
     {
         id: 2,
-        src: "/images/media/images/v1.webm",
+        src: "/images/media/videos/v1.webm",
         alt: "Professional Mole Removal at Dr. Karuna Skin Center",
         title: "Professional Mole Removal at Dr. Karuna Skin Center",
         type: "video",
@@ -19,8 +19,8 @@ export const MEDIA_ITEMS: MediaItem[] = [
     {
         id: 3,
         src: "/images/media/images/g2.webp",
-        alt: "Meet Dr. Karuna Singh: Expert in Skin, Hair & Laser Treatments",
-        title: "Meet Dr. Karuna Singh: Expert in Skin, Hair & Laser Treatments",
+        alt: "Training Completion Certificate for Hair Transplant Course",
+        title: "Training Completion Certificate for Hair Transplant Course",
         type: "image"
     },
     {
@@ -75,8 +75,8 @@ export const MEDIA_ITEMS: MediaItem[] = [
     {
         id: 11,
         src: "/images/media/images/g8.webp",
-        alt: "Successfully Removed Mole - Post-Excision Specimen",
-        title: "Successfully Removed Mole - Post-Excision Specimen",
+        alt: "Hair Transplant Procedure in Progress at Dr. Karuna Skin Hair & Laser Treatment Center",
+        title: "Hair Transplant Procedure in Progress at Dr. Karuna Skin Hair & Laser Treatment Center",
         type: "image"
     },
     {

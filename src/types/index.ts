@@ -1,8 +1,20 @@
-export interface Services {
+interface Id {
     id?: number;
+}
+
+interface ImgSrc {
     imgSrc: string;
+}
+
+interface Name {
     name: string;
+}
+
+interface Text {
     text: string;
+}
+
+interface Href {
     href: string;
 }
 
@@ -11,38 +23,60 @@ interface IonIcon {
     ionIconLink: string;
 }
 
-export interface Doctors {
-    imgSrc: string;
-    name: string;
+interface Title {
+    title: string;
+}
+
+interface Source {
+    src: string;
+}
+
+interface Alt {
+    alt: string;
+}
+
+export interface Services extends Id, ImgSrc, Name, Text, Href {
+    // id?: number;
+}
+
+
+export interface Doctors extends ImgSrc, Name {
     ionIcon: IonIcon[];
 }
 
-export interface Link {
-    name: string;
-    href: string;
-}
+export interface Link extends Name, Href {}
 
-export interface Testimonial {
-    id: number;
-    name: string;
+export interface Testimonial extends Id, Name, Text {
+    // id: number;
     rating: number;
-    text: string;
     image: string;
     position?: string;
 }
 
-export interface Photo {
-    id: number;
-    src: string;
-    alt: string;
-    title: string;
+export interface Photo extends Id, Title, Source, Alt {
+    // id: number;
 }
 
-export interface MediaItem {
-  id: number;
-  src: string;
-  alt: string;
-  title: string;
+export interface MediaItem extends Id, Title, Source, Alt {
+//   id: number;
   type: 'image' | 'video';
   poster?: string; // Optional thumbnail for videos
+}
+
+export interface Article extends Title, ImgSrc, Href{
+    id?: string;
+    author: string;
+    date: string;
+    category: string;
+    keywords: string[];
+    content: {
+        introduction?: string;
+        sections: {
+            title: string;
+            content: string;
+            items?: string[];
+            highlights?: string[];
+        }[];
+        conclusion?: string;
+    };
 }

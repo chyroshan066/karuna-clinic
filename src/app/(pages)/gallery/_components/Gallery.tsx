@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { IonIcon } from '@/components/utility/IonIcon';
 import { useState, useRef, useEffect } from 'react';
 import { MediaItem } from '@/types';
+import { TitleHeader } from '@/components/utility/TitleHeader';
 
 interface GalleryProps {
   mediaItems: MediaItem[];
@@ -152,12 +153,14 @@ export default function Gallery({
 
           {/* Section Header */}
           <div className="text-center">
-            <p className="section-subtitle">Our Clinic</p>
-            <h2 className="h2 section-title">
-              Explore Our Treatment Results
-              <br />
-              Gallery
-            </h2>
+
+            <TitleHeader
+              title="Our Clinic"
+              subTitle1="Explore Our Treatment"
+              subTitle2="Results Gallery"
+              className="mb-5"
+            />
+
             <p className="section-text">
               Take a virtual tour of our advanced dermatology center, featuring cutting-edge laser technology, luxurious treatment suites, and a serene environment designed with your comfort and privacy in mind.
             </p>
