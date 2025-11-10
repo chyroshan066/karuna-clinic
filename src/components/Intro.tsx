@@ -95,10 +95,6 @@ export const Intro = memo(({
     };
 
     const handlePauseVideo = () => {
-        // if (videoRef.current) {
-        //     videoRef.current.pause();
-        //     setIsPlaying(false);
-        // }
         pauseBoth(); // Use hook's pauseBoth instead of video.pause()
         setIsPlaying(false);
     };
