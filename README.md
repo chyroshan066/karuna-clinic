@@ -216,5 +216,3 @@ This project is proprietary software developed specifically for Dr. Karuna Skin,
 **Built with ❤️ for Dr. Karuna Skin, Hair and Laser Treatment Center**
 
 *For any questions or support regarding this website, contact **[chyroshan066](https://github.com/chyroshan066)**.*
-
-kjsdgb
