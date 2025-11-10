@@ -4,6 +4,7 @@ import { ARTICLES } from "@/constants/articles";
 import Image from "next/image";
 import { IonIcon } from "@/components/utility/IonIcon";
 import { TitleHeader } from "@/components/utility/TitleHeader";
+import styles from "./Articles.module.css";
 
 const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
@@ -16,7 +17,7 @@ const formatDate = (dateString: string): string => {
 
 export const Articles = memo(() => (
     <section
-        className="section blog"
+        className={`section ${styles.blog}`}
         id="blog"
         aria-label="blog"
     >
@@ -25,15 +26,16 @@ export const Articles = memo(() => (
             <TitleHeader
                 title="Our Articles"
                 subTitle1="Latest Articles & News"
+                className="mb-10"
             />
 
-            <ul className="blog-list">
+            <ul className={styles.blogList}>
 
                 {ARTICLES.map((article) => (
                     <li key={article.id}>
-                        <div className="blog-card">
+                        <div className={styles.blogCard}>
                             <figure
-                                className="card-banner img-holder"
+                                className={`img-holder ${styles.cardBanner}`}
                                 style={{
                                     "--width": "1180",
                                     "--height": "800"
@@ -48,32 +50,29 @@ export const Articles = memo(() => (
                                     className="img-cover"
                                 />
 
-                                <div className="card-badge">
+                                <div className={styles.cardBadge}>
                                     <IonIcon name="calendar-outline" />
-                                    <time
-                                        className="time"
-                                        dateTime={article.date}
-                                    >
+                                    <time dateTime={article.date}>
                                         {formatDate(article.date)}
                                     </time>
                                 </div>
                             </figure>
 
-                            <div className="card-content">
-                                <h3 className="h3">
+                            <div className={styles.cardContent}>
+                                <h3 className={`h3 ${styles.h3}`}>
                                     <Link
-                                        href={article.href}
-                                        className="card-title"
+                                        href={`/articles/${article.id}`}
+                                        className={styles.cardTitle}
                                     >
                                         {article.title}
                                     </Link>
                                 </h3>
-                                <p className="card-text line-clamp-3">
+                                <p className={`line-clamp-3 ${styles.cardexTt}`}>
                                     {article.content.introduction}
                                 </p>
                                 <Link
-                                    href={article.href}
-                                    className="card-link"
+                                    href={`/articles/${article.id}`}
+                                    className={styles.cardLink}
                                 >
                                     Read More
                                 </Link>

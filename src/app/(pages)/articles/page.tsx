@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Articles } from "./_components/Articles";
+import { Articles } from "./_components/Articles/Articles";
 
 export const metadata: Metadata = {
     title: 'Research Articles - Dr. Karuna Skin Hair and Laser Treatment Center',
@@ -26,6 +26,6 @@ export const metadata: Metadata = {
     },
 };
 
-export default function BlogsPage() {
+export default function ArticlesPage() {
     return <Articles />;
 }

@@ -15,19 +15,19 @@ export async function generateMetadata({
 
     if (!blogPost) {
         return {
-            title: 'Blog Not Found',
+            title: 'Article Not Found',
         };
     }
 
     return {
-        title: `${blogPost.title} | Sewaro Tattoo Studio`,
-        description: blogPost.content.introduction || 'Read more on Sewaro Tattoo Studio blog',
+        title: `${blogPost.title} | Dr. Karuna Skin Hair & Laser Center`,
+        description: blogPost.content.introduction || 'Read more on Dr. Karuna Skin Hair & Laser Center blog',
         authors: [{ name: blogPost.author }],
         keywords: blogPost.keywords,
         openGraph: {
             title: blogPost.title,
             description: blogPost.content.introduction || '',
-            url: `${baseUrl}/blogs/${blogId}`,
+            url: `${baseUrl}/articles/${blogId}`,
             type: 'article',
             publishedTime: blogPost.date,
             authors: [blogPost.author],
@@ -49,7 +49,7 @@ export async function generateMetadata({
     };
 }
 
-export default function BlogLayout({
+export default function ArticleLayout({
     children,
     params
 }: {
@@ -72,10 +72,10 @@ export default function BlogLayout({
         },
         "publisher": {
             "@type": "Organization",
-            "name": "Sewaro Tattoo",
+            "name": "Dr. Karuna Skin Hair & Laser Center",
             "logo": {
                 "@type": "ImageObject",
-                "url": `/images/logo.webp`
+                "url": `${baseUrl}/images/logo.webp`
             }
         },
         "datePublished": new Date(blogPost.date).toISOString(),
@@ -83,8 +83,14 @@ export default function BlogLayout({
         "description": blogPost.content.introduction,
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `${baseUrl}/blogs/${blogId}`
-        }
+            "@id": `${baseUrl}/articles/${blogId}`
+        },
+        "about": {
+            "@type": "MedicalBusiness",
+            "name": "Dr. Karuna Skin Hair & Laser Center",
+            "medicalSpecialty": "Dermatology"
+        },
+        "keywords": blogPost.keywords?.join(', ')
     };
 
     return (

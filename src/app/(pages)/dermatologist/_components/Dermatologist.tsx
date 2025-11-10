@@ -10,6 +10,13 @@ const TRAININGS: string[] = [
     "Hair Restoration Surgery",
 ];
 
+const BIO: string[] = [
+    "Dr. Karuna Singh Sijapati is an internationally trained, board-certified dermatologist and a highly skilled clinician with extensive experience in dermatology, cosmetology, and aesthetic medicine. She is known for her patient-centered approach and commitment to delivering safe, advanced, and evidence-based treatments.",
+    "She completed her MD in Dermatology and Venereology from the prestigious B.P. Koirala Institute of Health Sciences (BPKIHS), Dharan, Nepal. To further specialize in aesthetic care, she pursued a Fellowship in Aesthetic Medicine at one of India’s leading institutes in Pune.",
+    "Dr. Sijapati has also undergone intensive training in advanced skin laser surgery, skin rejuvenation, skin tightening, and body contouring at the Laser and Dermatosurgery Training & Research Centre in Tamil Nadu, India. She further expanded her expertise by completing a dedicated Laser Surgery Training Program at Siriraj Hospital, Mahidol University, Thailand—one of Asia’s premier medical institutions.",
+    "In addition, she has been trained in hair restoration surgery under renowned hair transplant surgeons in Bangalore, India.",
+];
+
 export const Dermatologist = memo(() => {
     return (
         <main>
@@ -216,16 +223,19 @@ export const Dermatologist = memo(() => {
                             }}>
                                 Dedicated to Your Skin Health
                             </h2>
-                            <p
-                                className="section-text dentist-about-text"
-                                style={{
-                                    fontSize: '1.6rem',
-                                    lineHeight: '1.8',
-                                    color: 'var(--warm-taupe)',
-                                    marginBottom: '30px'
-                                }}>
-                                Dr. Karuna Singh Sijapati is an internationally trained and board certified dermatologist. She is a skilled clinician with many years of experience in the field of dermatology and cosmetology.
-                            </p>
+                            {BIO.map((text, index) => (
+                                <p
+                                    key={index}
+                                    className="section-text dentist-about-text"
+                                    style={{
+                                        fontSize: '1.6rem',
+                                        lineHeight: '1.8',
+                                        color: 'var(--warm-taupe)',
+                                        marginBottom: '30px'
+                                    }}>
+                                    {text}
+                                </p>
+                            ))}
                             <p
                                 className="section-text dentist-about-text"
                                 style={{
@@ -233,8 +243,7 @@ export const Dermatologist = memo(() => {
                                     lineHeight: '1.8',
                                     color: 'var(--warm-taupe)'
                                 }}>
-                                She completed MD in Dermatology and Venereology from highly prestigious institute B.P. Koirala Institute of Health Sciences, Dharan Nepal. She also has persuade Fellowship in Aesthetic Medicine at one of the leading Aesthetic Medicine institute in Pune, India. She has also undergone intensive training course on advanced skin laser surgery, skin rejuvenation, skin tightening and body contouring, in Laser and Dermatosurgery training and research centre, Tamil Nadu, India.
-                                She has keen interest in research activities and has published research and case reports in renowned journals. She regularly attends conferences, CMEs and trainings for the better management of her patients.
+                                Dr. Sijapati is equally passionate about academic growth and research. She has authored multiple research papers and case reports published in reputable national and international journals. She actively participates in conferences, CME programs, and hands-on workshops to stay updated with the latest advancements in dermatology and aesthetic treatments—ensuring the best outcomes for her patients.
                             </p>
 
                             {/* Key highlights */}
