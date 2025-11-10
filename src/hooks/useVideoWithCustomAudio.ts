@@ -2,8 +2,7 @@
 import { useEffect, useRef, RefObject } from 'react';
 
 interface UseVideoWithCustomAudioProps {
-  videoRef: RefObject<HTMLVideoElement>;
-  customAudioUrl: string;
+  videoRef: RefObject<HTMLVideoElement | null>;
   enabled?: boolean;
 }
 
@@ -25,7 +24,6 @@ interface UseVideoWithCustomAudioReturn {
  */
 export const useVideoWithCustomAudio = ({
   videoRef,
-  customAudioUrl,
   enabled = true,
 }: UseVideoWithCustomAudioProps): UseVideoWithCustomAudioReturn => {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -34,9 +32,9 @@ export const useVideoWithCustomAudio = ({
     if (!enabled || !audioRef.current) return;
 
     // Set the custom audio source
-    audioRef.current.src = customAudioUrl;
+    audioRef.current.src = "/images/media/audios/a1.opus";
     audioRef.current.preload = 'metadata'; // preload metadata for better UX
-  }, [customAudioUrl, enabled]);
+  }, [enabled]);
 
   // Effect to synchronize custom audio with video playback
   useEffect(() => {

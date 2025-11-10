@@ -3,19 +3,24 @@
 import { useState, useRef, memo, useEffect } from 'react';
 import { IonIcon } from './utility/IonIcon';
 import { TitleHeader } from './utility/TitleHeader';
+import { useVideoWithCustomAudio } from '@/hooks/useVideoWithCustomAudio';
 
 interface IntroProps {
     videoUrl?: string;
 }
 
 export const Intro = memo(({
-    videoUrl = "/images/media/videos/intro.webm"
+    videoUrl = "/images/media/videos/intro.webm",
 }: IntroProps) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [hasUserInteracted, setHasUserInteracted] = useState(false);
     const [videoDuration, setVideoDuration] = useState<string>('0:00');
     const videoRef = useRef<HTMLVideoElement>(null);
+
+    const { audioRef, playBoth, pauseBoth } = useVideoWithCustomAudio({
+        videoRef,
+    });
 
     const formatDuration = (seconds: number): string => {
         const minutes = Math.floor(seconds / 60);
@@ -76,24 +81,26 @@ export const Intro = memo(({
         if (videoRef.current) {
             setIsLoading(true);
             setHasUserInteracted(true);
-            videoRef.current.muted = false;
-            videoRef.current.play()
-                .then(() => {
-                    setIsPlaying(true);
-                    setIsLoading(false);
-                })
-                .catch((error) => {
-                    console.error('Error playing video:', error);
-                    setIsLoading(false);
-                });
+            videoRef.current.muted = true;
+
+            try {
+                playBoth();
+                setIsPlaying(true);
+                setIsLoading(false);
+            } catch (error) {
+                console.error('Error playing video:', error);
+                setIsLoading(false);
+            }
         }
     };
 
     const handlePauseVideo = () => {
-        if (videoRef.current) {
-            videoRef.current.pause();
-            setIsPlaying(false);
-        }
+        // if (videoRef.current) {
+        //     videoRef.current.pause();
+        //     setIsPlaying(false);
+        // }
+        pauseBoth(); // Use hook's pauseBoth instead of video.pause()
+        setIsPlaying(false);
     };
 
     const handleVideoEnded = () => {
@@ -150,6 +157,9 @@ export const Intro = memo(({
                                 />
                                 Your browser does not support the video tag.
                             </video>
+
+                            {/* Hidden audio element for custom audio */}
+                            <audio ref={audioRef} style={{ display: 'none' }} />
 
                             {/* Custom Play/Pause Overlay */}
                             {(!isPlaying || !hasUserInteracted) && (

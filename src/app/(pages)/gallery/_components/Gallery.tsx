@@ -5,6 +5,7 @@ import { IonIcon } from '@/components/utility/IonIcon';
 import { useState, useRef, useEffect } from 'react';
 import { MediaItem } from '@/types';
 import { TitleHeader } from '@/components/utility/TitleHeader';
+import { useVideoWithCustomAudio } from '@/hooks/useVideoWithCustomAudio';
 
 interface GalleryProps {
   mediaItems: MediaItem[];
@@ -16,11 +17,16 @@ export default function Gallery({
   const [selectedMedia, setSelectedMedia] = useState<number | null>(null);
   const [loadedItems, setLoadedItems] = useState(12);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.5);
 
   const lightboxVideoRef = useRef<HTMLVideoElement>(null);
   const gridVideoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
+
+  const { audioRef, playBoth, pauseBoth } = useVideoWithCustomAudio({
+    videoRef: lightboxVideoRef,
+    enabled: selectedMedia !== null && mediaItems[selectedMedia]?.type === 'video'
+  });
 
   // Calculate stats based on media items
   const imageCount = mediaItems.filter(item => item.type === 'image').length;
@@ -61,18 +67,15 @@ export default function Gallery({
     setIsPlaying(false);
     // Pause lightbox video if playing
     if (lightboxVideoRef.current) {
-      lightboxVideoRef.current.pause();
+      pauseBoth();
     }
   };
 
   const navigateLightbox = (direction: 'prev' | 'next') => {
     if (selectedMedia === null) return;
 
-    // Pause current video if playing
-    if (lightboxVideoRef.current) {
-      lightboxVideoRef.current.pause();
-    }
-
+    // Pause current video and audio
+    pauseBoth();
     setIsPlaying(false);
 
     if (direction === 'prev') {
@@ -86,30 +89,40 @@ export default function Gallery({
     if (!lightboxVideoRef.current) return;
 
     if (isPlaying) {
-      lightboxVideoRef.current.pause();
+      pauseBoth();
+      setIsPlaying(false);
     } else {
-      lightboxVideoRef.current.play();
+      try {
+        playBoth();
+        setIsPlaying(true);
+      } catch (error) {
+        console.error('Error playing video/audio:', error);
+      }
     }
-    setIsPlaying(!isPlaying);
   };
 
   const toggleMute = () => {
-    if (!lightboxVideoRef.current) return;
+    if (!lightboxVideoRef.current || !audioRef.current) return;
 
-    lightboxVideoRef.current.muted = !isMuted;
+    // Toggle mute state for custom audio
+    const newMutedState = !isMuted;
     setIsMuted(!isMuted);
+
+    if (audioRef.current) {
+      audioRef.current.muted = newMutedState;
+    }
   };
 
   const handleVolumeChange = (newVolume: number) => {
-    if (!lightboxVideoRef.current) return;
+    if (!audioRef.current) return;
 
     setVolume(newVolume);
-    lightboxVideoRef.current.volume = newVolume;
+    audioRef.current.volume = newVolume;
 
     // Unmute if volume is increased from 0
     if (newVolume > 0 && isMuted) {
       setIsMuted(false);
-      lightboxVideoRef.current.muted = false;
+      audioRef.current.muted = false;
     }
   };
 
@@ -330,6 +343,12 @@ export default function Gallery({
                           lightboxVideoRef.current.volume = volume;
                         }
                       }}
+                    />
+
+                    {/* Hidden audio element for custom audio */}
+                    <audio
+                      ref={audioRef}
+                      style={{ display: 'none' }}
                     />
 
                     {/* Video Controls */}

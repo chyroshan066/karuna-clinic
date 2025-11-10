@@ -12,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0, // Homepage gets highest priority
     },
     {
+      url: `${baseUrl}/articles`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 1.0, // Homepage gets highest priority
+    },
+    {
       url: `${baseUrl}/dermatologist`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
