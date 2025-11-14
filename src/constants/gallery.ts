@@ -30,11 +30,11 @@ export const MEDIA_ITEMS: MediaItem[] = [
         title: "Meet Dr. Karuna Singh: Expert in Skin, Hair & Laser Treatments",
         type: "image"
     },
-    {
+     {
         id: 5,
-        src: "/images/media/images/g4.webp",
-        alt: "Successful Mole Removal: Post-Procedure Results",
-        title: "Successful Mole Removal: Post-Procedure Results",
+        src: "/images/media/images/g8.webp",
+        alt: "Hair Transplant Procedure in Progress at Dr. Karuna Skin Hair & Laser Treatment Center",
+        title: "Hair Transplant Procedure in Progress at Dr. Karuna Skin Hair & Laser Treatment Center",
         type: "image"
     },
     {
@@ -74,9 +74,9 @@ export const MEDIA_ITEMS: MediaItem[] = [
     },
     {
         id: 11,
-        src: "/images/media/images/g8.webp",
-        alt: "Hair Transplant Procedure in Progress at Dr. Karuna Skin Hair & Laser Treatment Center",
-        title: "Hair Transplant Procedure in Progress at Dr. Karuna Skin Hair & Laser Treatment Center",
+        src: "/images/media/images/g4.webp",
+        alt: "Successful Mole Removal: Post-Procedure Results",
+        title: "Successful Mole Removal: Post-Procedure Results",
         type: "image"
     },
     {
