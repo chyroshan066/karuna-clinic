@@ -47,8 +47,6 @@ export const useVideoWithCustomAudio = ({
 
     // Force video to always be muted (this prevents original audio)
     video.muted = true;
-    // Set volume to 0 as additional safeguard
-    const originalVideoVolume = video.volume;
     video.volume = 0;
 
     // Initialize audio muted state from video
