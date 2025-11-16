@@ -669,9 +669,6 @@
   }
 
   /* SERVICE */
-  .service-banner { 
-    display: none; 
-  }
   .service { 
     padding-block-end: 0; 
   }

@@ -95,27 +95,6 @@ export const Dermatologist = memo(() => {
                                         loading="lazy"
                                         style={{ borderRadius: '50%' }}
                                     />
-
-                                    {/* Verified badge */}
-                                    <div style={{
-                                        position: 'absolute',
-                                        bottom: '10px',
-                                        right: '10px',
-                                        width: '40px',
-                                        height: '40px',
-                                        background: 'var(--deep-burgundy)',
-                                        borderRadius: '50%',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        color: 'white',
-                                        fontSize: '18px',
-                                        border: '3px solid white',
-                                        boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)'
-                                    }}>
-                                        ✓
-                                    </div>
-
                                 </div>
                             </div>
 

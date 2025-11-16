@@ -31,7 +31,7 @@ export const About = memo(() => (
                 />
 
                 <p className="section-text section-text-1">
-                    Welcome to <b>Dr. Karuna Skin Hair & Laser Center</b>, your trusted <b>best skin clinic in Dharan</b> and premier <b>dermatology clinic in Dharan</b> located at Putali Line, Dharan-10, Sunsari, Nepal. With the motto <i>“Expert Dermatologist, Advanced Technology and Affordable Care”</i>, we are committed to providing high-quality <b>skin and aesthetic care in Nepal</b> for every individual.
+                    Welcome to <b>Dr. Karuna Skin Hair & Laser Center</b>, your trusted <b>best skin clinic in Dharan</b> and premier <b>dermatology clinic in Dharan</b> located at Putali Line, Dharan-10, Sunsari, Nepal. With the motto <i>“Scientific solutions for every skin”</i>, we are committed to providing high-quality <b>skin and aesthetic care in Nepal</b> for every individual.
                 </p>
                 <p className="section-text">
                     Our team of experienced dermatologists at this leading <b>skin clinic in Dharan</b> offers a full range of treatments including <b>laser hair removal, acne treatment, anti-aging therapy, skin rejuvenation, hair loss treatment, pigmentation removal, melasma treatment,</b> and <b>scar removal.</b> We also specialize in <b>cosmetic dermatology,</b> ensuring gentle care for all skin types, as well as <b>comprehensive aesthetic services in Dharan</b> for all ages.

@@ -57,19 +57,6 @@ export const Service = memo(() => (
                     ))
                 }
 
-                <li className="service-banner">
-                    <figure>
-                        <Image
-                            src="/images/service-banner.webp"
-                            width={409}
-                            height={467}
-                            loading="lazy"
-                            alt="service banner"
-                            className="w-fill"
-                        />
-                    </figure>
-                </li>
-
                 {SERVICES
                     .filter(service => service.id != null && service.id > 3 && service.id <= 6)
                     .map((service) => (

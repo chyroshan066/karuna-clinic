@@ -23,7 +23,7 @@ const initialValues: AppointmentFormData = {
     phone: "",
     gender: "Male",
     date: "",
-    time: "08:00am",
+    time: "10:00am",
     message: "",
 };
 
@@ -226,21 +226,21 @@ export const Appintment = memo(() => {
                                     {...register("time")}
                                     className="input-field"
                                 >
-                                    {[...Array(4)].map((_, index) => (
+                                    {[...Array(3)].map((_, index) => (
                                         <option
                                             key={index}
-                                            value={`${index < 2 ? `0${8 + index}` : 8 + index}:00am`}
+                                            value={`${10 + index}:00am`}
                                         >
-                                            {index < 2 ? `0${8 + index}` : 8 + index} : 00 am
+                                            {10 + index} : 00 am
                                         </option>
                                     ))}
 
-                                    {[...Array(7)].map((_, index) => (
+                                    {[...Array(3)].map((_, index) => (
                                         <option
                                             key={index}
-                                            value={`${index < 9 ? `0${1 + index}` : 1 + index}:00pm`}
+                                            value={`0${1 + index}:00pm`}
                                         >
-                                            {index < 9 ? `0${1 + index}` : 1 + index} : 00 pm
+                                            0{1 + index} : 00 pm
                                         </option>
                                     ))}
 
@@ -292,7 +292,7 @@ export const Appintment = memo(() => {
                         <p className="contact-label">Daily</p>
                         <p className="body-4">
                             Sunday to Friday <br />
-                            8.00 am - 7.00pm
+                            10.00 am - 3.00pm
                         </p>
                     </div>
                 </div>

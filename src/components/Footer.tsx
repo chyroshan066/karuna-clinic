@@ -66,7 +66,7 @@ export const Footer = memo(() => (
                         </div>
                         <span className="span">
                             Sunday - Friday:<br />
-                            8:00 AM - 7:00 PM
+                            10:00 AM - 3:00 PM
                         </span>
                     </div>
 
