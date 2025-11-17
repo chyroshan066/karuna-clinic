@@ -700,9 +700,6 @@
   .about { 
     padding-block-end: 0; 
   }
-  .about-banner { 
-    margin-block-end: 50px; 
-  }
   .about .section-text-1 { 
     margin-block: 25px 15px; 
   }
@@ -1715,12 +1712,9 @@
   /* ABOUT */
   .about .custom-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
     gap: 30px;
-  }
-  .about-banner { 
-    margin-block-end: 0; 
   }
 
   /* GALLERY */
@@ -1810,7 +1804,7 @@
 
   /* ABOUT */
   .about .custom-container {
-    grid-template-columns: 0.85fr 1fr;
+    grid-template-columns: 1fr;
     gap: 100px;
   }
 

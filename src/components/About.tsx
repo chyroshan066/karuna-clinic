@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { memo } from "react";
 import { TitleHeader } from "./utility/TitleHeader";
 
@@ -9,25 +8,11 @@ export const About = memo(() => (
         aria-label="about"
     >
         <div className="custom-container">
-
-            <figure className="about-banner">
-                <Image
-                    src="/images/about-banner.webp"
-                    width={470}
-                    height={538}
-                    loading="lazy"
-                    alt="about banner"
-                    className="w-fill"
-                />
-            </figure>
-
             <div>
-                {/* <p className="section-subtitle">About Us</p>
-                <h2 className="h2 section-title">We Care For Your Skin & Beauty</h2> */}
+
                 <TitleHeader
                     title="About Us"
                     subTitle1="We Care For Your Skin & Beauty"
-                    className="text-start"
                 />
 
                 <p className="section-text section-text-1">
@@ -42,7 +27,6 @@ export const About = memo(() => (
                 <p className="section-text">
                     Choose <b>Dr. Karuna Skin Hair & Laser Center</b> for the <b>best dermatologist in Dharan,</b> where healthy skin begins with expert care and a personal touch  at the most trusted <b>skin clinic in Dharan.</b>
                 </p>
-
             </div>
         </div>
     </section>
