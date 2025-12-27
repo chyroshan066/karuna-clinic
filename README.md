@@ -28,18 +28,20 @@ Dr. Karuna Skin, Hair and Laser Treatment Center is a premium dermatology and ae
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn package manager
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone [repository-url]
    cd rathi-dental
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
@@ -47,6 +49,7 @@ Dr. Karuna Skin, Hair and Laser Treatment Center is a premium dermatology and ae
    ```
 
 3. **Run development server**
+
    ```bash
    npm run dev
    # or
@@ -129,17 +132,20 @@ karuna-clinic/
 ## 🎨 Key Components
 
 ### Appointment System
+
 - Form validation with error handling
 - Date selection with future date enforcement
 - Real-time form feedback
 - Mobile-optimized interface
 
 ### Service Display
+
 - Categorized dermatological and aesthetic services
 
 ## 📱 Responsive Design
 
 The website is fully responsive and tested on:
+
 - **Desktop**: 1920px and above
 - **Laptop**: 1024px - 1919px
 - **Tablet**: 768px - 1023px
@@ -149,7 +155,7 @@ The website is fully responsive and tested on:
 
 ### Custom Domain Setup
 
-The website is configured for the custom domain `karunaskinclinic.com.np`:
+The website is configured for the custom domain `karunaskinclinic.live`:
 
 1. DNS records are configured for the domain
 2. SSL certificates are automatically provisioned
@@ -165,11 +171,13 @@ The website is configured for the custom domain `karunaskinclinic.com.np`:
 ## 🧪 Testing
 
 Run the test suite:
+
 ```bash
 npm run test
 ```
 
 Check code quality:
+
 ```bash
 npm run lint
 npm run type-check
@@ -187,7 +195,7 @@ npm run type-check
 
 The website is deployed on Vercel with automatic deployments:
 
-- **Production**: https://karunaskinclinic.com.np
+- **Production**: https://karunaskinclinic.live
 - **Preview**: Automatic preview deployments for pull requests
 
 ### Manual Deployment
@@ -200,11 +208,13 @@ npm run export  # if using static export
 ## 📞 Support & Maintenance
 
 ### Client Information
+
 - **Dermatology Clinic**: Dr. Karuna Skin, Hair and Laser Treatment Center
-- **Domain**: karunaskinclinic.com.np
+- **Domain**: karunaskinclinic.live
 - **Deployment**: Vercel
 
 ### Developer Contact
+
 For technical support or website updates, contact the developer.
 
 ## 📝 License
@@ -215,4 +225,4 @@ This project is proprietary software developed specifically for Dr. Karuna Skin,
 
 **Built with ❤️ for Dr. Karuna Skin, Hair and Laser Treatment Center**
 
-*For any questions or support regarding this website, contact **[chyroshan066](https://github.com/chyroshan066)**.*
+_For any questions or support regarding this website, contact **[chyroshan066](https://github.com/chyroshan066)**._
