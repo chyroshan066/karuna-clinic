@@ -192,8 +192,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Runs before first paint: if the visitor already closed the notice
+            in this tab, hide it immediately so it never flashes on refresh. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("karuna-absence-notice-dismissed")==="true"){document.documentElement.setAttribute("data-notice-dismissed","true")}}catch(e){}`,
+          }}
+        />
         <script
           type="application/ld+json"
           // "dangerouslySetInnerHTML" is a way to inject raw HTML content into a React component.

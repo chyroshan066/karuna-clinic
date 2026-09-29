@@ -1830,3 +1830,83 @@
     align-items: center; 
   }
 }
+
+
+/* ---------- ANNOUNCEMENT BAR ----------
+   Paste at the very END of globals.css.
+   .header becomes the positioning context so the absolutely-positioned
+   .header-bottom (top: 58px on desktop) is measured from below the bar
+   instead of the top of the page. */
+.header {
+  position: relative;
+}
+
+.announcement-bar {
+  background-color: var(--deep-burgundy);
+  color: var(--white);
+  padding-block: 10px;
+  position: sticky;   /* stays pinned to the top while scrolling */
+  top: 0;
+  z-index: 10;        /* above the fixed header (z-index: 4) */
+}
+
+.announcement-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.announcement-icon {
+  flex-shrink: 0;
+  font-size: 2.2rem;
+  color: var(--champagne-gold);
+}
+
+.announcement-text {
+  flex: 1;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.announcement-text strong {
+  font-weight: var(--weight-600);
+  color: var(--champagne-gold);
+}
+
+.announcement-close {
+  flex-shrink: 0;
+  font-size: 2.2rem;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--white);
+  transition: color 0.25s ease;
+}
+
+.announcement-close:is(:hover, :focus-visible) {
+  color: var(--champagne-gold);
+}
+
+@media (min-width: 768px) {
+  .announcement-text {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
+
+/* When the header becomes fixed on scroll, park it directly under the
+   announcement bar (--announcement-h is 0px once the bar is dismissed). */
+.header-bottom.active {
+  top: var(--announcement-h, 0px);
+  animation: headerSlideDown 0.5s var(--cubic-out) forwards;
+}
+
+@keyframes headerSlideDown {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+/* Set by the inline script in layout.tsx before first paint, so a notice
+   the visitor already closed never flashes back on refresh. */
+html[data-notice-dismissed="true"] .announcement-bar {
+  display: none;
+}

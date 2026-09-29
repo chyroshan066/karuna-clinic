@@ -7,6 +7,7 @@ import { SocialLink } from "./utility/SocialLink";
 import { Button } from "./utility/Button/Button";
 import Image from "next/image";
 import Link from "next/link";
+import { AnnouncementBar } from "./AnnouncementBar";
 
 export const Header = memo(() => {
     const [isNavActive, setIsNavActive] = useState(false);
@@ -37,6 +38,7 @@ export const Header = memo(() => {
     }, []);
 
     return <>
+        <AnnouncementBar />
         <header className={`header ${isHeaderActive ? 'active' : ''}`}>
             <div className="header-top">
                 <div className="custom-container">
