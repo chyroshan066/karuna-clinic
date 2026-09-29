@@ -1862,8 +1862,9 @@
   color: var(--champagne-gold);
 }
 
-.announcement-text {
+.announcement-bar .announcement-text {
   flex: 1;
+  text-align: left;
   font-size: 1.3rem;
   line-height: 1.5;
 }
@@ -1889,7 +1890,6 @@
 @media (min-width: 768px) {
   .announcement-text {
     font-size: 1.4rem;
-    text-align: center;
   }
 }
 
@@ -1909,4 +1909,17 @@
    the visitor already closed never flashes back on refresh. */
 html[data-notice-dismissed="true"] .announcement-bar {
   display: none;
+}
+
+.announcement-bar .announcement-link {
+  display: inline; /* your global reset makes <a> display:block, which forced the line breaks */
+  font-weight: var(--weight-600);
+  color: var(--champagne-gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+.announcement-link:is(:hover, :focus-visible) {
+  color: var(--white);
 }

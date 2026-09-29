@@ -71,10 +71,18 @@ export const AnnouncementBar = memo(() => {
                     aria-hidden="true"
                     className="announcement-icon"
                 />
-                <p className="announcement-text">
+                <p className="announcement-text" style={{ textAlign: "left" }}>
                     <strong>Notice:</strong> Dr. Karuna is attending an international
                     training programme and will be unavailable for one week. Our clinic
-                    remains open, and our team is happy to assist you.
+                    remains open, and our team is happy to assist you. Please call{" "}
+                    <a
+                        href="tel:+9779811316273"
+                        className="announcement-link"
+                        style={{ display: "inline" }}
+                    >
+                        9811316273
+                    </a>{" "}
+                    before visiting the clinic.
                 </p>
                 <button
                     type="button"
