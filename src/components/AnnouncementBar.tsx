@@ -11,6 +11,7 @@ const STORAGE_KEY = "karuna-absence-notice-dismissed";
  * Leave as null to keep it visible until you remove the component.
  */
 const NOTICE_END_DATE: string | null = null;
+// const NOTICE_END_DATE: string | null = "2026-10-07T23:59:59+05:45";
 
 export const AnnouncementBar = memo(() => {
     // Visible by default so there is no layout shift on first paint;
@@ -64,26 +65,48 @@ export const AnnouncementBar = memo(() => {
     if (!isVisible) return null;
 
     return (
-        <div ref={barRef} className="announcement-bar" role="status" aria-live="polite">
+        <div
+            ref={barRef}
+            className="announcement-bar"
+            role="region"
+            aria-label="Clinic notice"
+        >
             <div className="custom-container announcement-inner">
                 <IonIcon
                     name="information-circle-outline"
                     aria-hidden="true"
                     className="announcement-icon"
                 />
-                <p className="announcement-text" style={{ textAlign: "left" }}>
-                    <strong>Notice:</strong> Dr. Karuna is attending an international
-                    training programme and will be unavailable for one week. Our clinic
-                    remains open, and our team is happy to assist you. Please call{" "}
-                    <a
-                        href="tel:+9779811316273"
-                        className="announcement-link"
-                        style={{ display: "inline" }}
-                    >
-                        9811316273
-                    </a>{" "}
-                    before visiting the clinic.
-                </p>
+
+                {/* Fixed label – never moves */}
+                <strong className="announcement-label">Notice:</strong>
+
+                {/* Scrolling message. The text is rendered twice so the loop is
+                    seamless (the track slides by exactly one copy's width).
+                    The second copy is hidden from screen readers and the tab order. */}
+                <div className="announcement-marquee">
+                    <div className="announcement-track">
+                        {[0, 1].map((copy) => (
+                            <p
+                                key={copy}
+                                className="announcement-text"
+                                aria-hidden={copy === 1 ? true : undefined}
+                            >
+                                Our clinic will remain closed for the Dashain holidays until Purnima (Kartik 8, 2083). We will resume services thereafter; however, as renovation work will still be in progress, we kindly request you to call{" "}
+                                <a
+                                    href="tel:+9779811316273"
+                                    className="announcement-link"
+                                    style={{ display: "inline" }}
+                                    tabIndex={copy === 1 ? -1 : undefined}
+                                >
+                                    9811316273
+                                </a>{" "}
+                                before visiting to help us manage patient visits smoothly. Thank you for your patience and understanding.
+                            </p>
+                        ))}
+                    </div>
+                </div>
+
                 <button
                     type="button"
                     className="announcement-close"

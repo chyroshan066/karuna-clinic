@@ -1832,11 +1832,12 @@
 }
 
 
-/* ---------- ANNOUNCEMENT BAR ----------
-   Paste at the very END of globals.css.
-   .header becomes the positioning context so the absolutely-positioned
-   .header-bottom (top: 58px on desktop) is measured from below the bar
-   instead of the top of the page. */
+/* ---------- ANNOUNCEMENT BAR (complete, final version) ----------
+   Delete ALL earlier announcement CSS from globals.css, then paste this
+   whole file at the very END of globals.css. */
+
+/* Positioning context so .header-bottom (absolute, top: 58px) is measured
+   from below the bar instead of the top of the page. */
 .header {
   position: relative;
 }
@@ -1862,16 +1863,60 @@
   color: var(--champagne-gold);
 }
 
-.announcement-bar .announcement-text {
-  flex: 1;
-  text-align: left;
+/* Fixed "Notice:" label */
+.announcement-bar .announcement-label {
+  flex-shrink: 0;
   font-size: 1.3rem;
+  font-weight: var(--weight-600);
+  color: var(--champagne-gold);
   line-height: 1.5;
 }
 
-.announcement-text strong {
+/* Scrolling area */
+.announcement-marquee {
+  flex: 1;
+  min-width: 0;            /* lets the flex child shrink so it can clip */
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 20px, #000 calc(100% - 20px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 20px, #000 calc(100% - 20px), transparent);
+}
+
+.announcement-track {
+  display: flex;
+  width: max-content;
+  animation: announcement-scroll 45s linear infinite;  /* higher = slower */
+}
+
+/* Pause while hovering / focusing so the phone number can be read and tapped */
+.announcement-marquee:is(:hover, :focus-within) .announcement-track {
+  animation-play-state: paused;
+}
+
+.announcement-bar .announcement-text {
+  flex-shrink: 0;
+  margin: 0;
+  padding-right: 80px;     /* gap between the two copies */
+  white-space: nowrap;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+@keyframes announcement-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.announcement-bar .announcement-link {
+  display: inline;
   font-weight: var(--weight-600);
   color: var(--champagne-gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.announcement-bar .announcement-link:is(:hover, :focus-visible) {
+  color: var(--white);
 }
 
 .announcement-close {
@@ -1888,8 +1933,31 @@
 }
 
 @media (min-width: 768px) {
-  .announcement-text {
+  .announcement-bar .announcement-label,
+  .announcement-bar .announcement-text {
     font-size: 1.4rem;
+  }
+}
+
+/* Accessibility: for visitors who ask their device to reduce motion,
+   show the message as normal static, wrapping text instead of scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  .announcement-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .announcement-track {
+    animation: none;
+    width: 100%;
+  }
+  .announcement-bar .announcement-text {
+    flex-shrink: 1;      /* allow the text box to shrink to the bar's width... */
+    min-width: 0;
+    white-space: normal; /* ...so it can wrap instead of being clipped */
+    padding-right: 0;
+  }
+  .announcement-bar .announcement-text[aria-hidden="true"] {
+    display: none;
   }
 }
 
@@ -1909,17 +1977,4 @@
    the visitor already closed never flashes back on refresh. */
 html[data-notice-dismissed="true"] .announcement-bar {
   display: none;
-}
-
-.announcement-bar .announcement-link {
-  display: inline; /* your global reset makes <a> display:block, which forced the line breaks */
-  font-weight: var(--weight-600);
-  color: var(--champagne-gold);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  white-space: nowrap;
-}
-
-.announcement-link:is(:hover, :focus-visible) {
-  color: var(--white);
 }
