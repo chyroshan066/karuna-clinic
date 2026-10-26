@@ -92,7 +92,7 @@ export const AnnouncementBar = memo(() => {
                                 className="announcement-text"
                                 aria-hidden={copy === 1 ? true : undefined}
                             >
-                                Our clinic will remain closed for the Dashain holidays until Purnima (Kartik 8, 2083). We will resume services thereafter; however, as renovation work will still be in progress, we kindly request you to call{" "}
+                                Our clinic is currently undergoing renovation. To help manage crowds and ensure a smooth visit, please call{" "}
                                 <a
                                     href="tel:+9779811316273"
                                     className="announcement-link"
@@ -101,7 +101,7 @@ export const AnnouncementBar = memo(() => {
                                 >
                                     9811316273
                                 </a>{" "}
-                                before visiting to help us manage patient visits smoothly. Thank you for your patience and understanding.
+                                before visiting. We kindly ask for your patience and understanding during this period. Thank you for bearing with us!
                             </p>
                         ))}
                     </div>
