@@ -92,7 +92,7 @@ export const AnnouncementBar = memo(() => {
                                 className="announcement-text"
                                 aria-hidden={copy === 1 ? true : undefined}
                             >
-                                Our clinic will remain closed on Friday and Sunday due to ongoing renovation work. Saturday will remain our regular weekly closing day. For visits on other days, please call{" "}
+                                Our clinic will remain closed on Friday and Sunday due to ongoing renovation work. Saturday will continue to be our regular weekly closing day. For visits on other days, please call{" "}
                                 <a
                                     href="tel:+9779811316273"
                                     className="announcement-link"
@@ -101,7 +101,7 @@ export const AnnouncementBar = memo(() => {
                                 >
                                     9811316273
                                 </a>{" "}
-                                beforehand to confirm availability. We appreciate your patience and understanding!
+                                between 9:30 AM and 3:30 PM to confirm clinic availability. We appreciate your patience and understanding!
                             </p>
                         ))}
                     </div>
