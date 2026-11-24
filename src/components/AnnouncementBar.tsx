@@ -92,8 +92,8 @@ export const AnnouncementBar = memo(() => {
                                 className="announcement-text"
                                 aria-hidden={copy === 1 ? true : undefined}
                             >
-                                Our clinic renovation will continue for a few more days, and patient consultations will remain temporarily unavailable. We will notify you as soon as we resume seeing patients. We sincerely apologize for the inconvenience and appreciate your patience and understanding.{" "}
-                                {/* <a
+                                We are pleased to inform you that patient consultations have resumed from today onwards. However, renovation work at our clinic is still ongoing and is expected to take a few more days. We kindly request all patients to call{" "}
+                                <a
                                     href="tel:+9779811316273"
                                     className="announcement-link"
                                     style={{ display: "inline" }}
@@ -101,7 +101,7 @@ export const AnnouncementBar = memo(() => {
                                 >
                                     9811316273
                                 </a>{" "}
-                                between 9:30 AM and 3:30 PM to confirm clinic availability. We appreciate your patience and understanding! */}
+                                before visiting to confirm availability. We apologize for any inconvenience and sincerely appreciate your patience and understanding.
                             </p>
                         ))}
                     </div>
